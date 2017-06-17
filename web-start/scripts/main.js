@@ -23,6 +23,7 @@ function FriendlyChat() {
   this.messageList = document.getElementById('messages');
   this.messageForm = document.getElementById('message-form');
   this.messageInput = document.getElementById('message');
+  this.typeInput = document.getElementById('type');
   this.submitButton = document.getElementById('submit');
   this.submitImageButton = document.getElementById('submitImage');
   this.imageForm = document.getElementById('image-form');
@@ -34,7 +35,10 @@ function FriendlyChat() {
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
 
   // Saves message on form submit.
+  
   this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
+  // this.messageForm.addEventListener('submit', this.findMatch.bind(this));
+
   this.signOutButton.addEventListener('click', this.signOut.bind(this));
   this.signInButton.addEventListener('click', this.signIn.bind(this));
 
@@ -79,6 +83,16 @@ FriendlyChat.prototype.loadMessages = function() {
   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
 };
 
+FriendlyChat.prototype.findMatch = function(e){
+	e.preventDefault();
+	// Check that the user entered a message and is signed in.
+  	if (this.messageInput.value && this.checkSignedInWithMessage()) {
+  		// if (this.messageInput.value )
+  		var itemRef = firebase.database().ref('items');
+  		console.log(itemRef);
+  	}		
+}
+
 // Saves a new message on the Firebase DB.
 FriendlyChat.prototype.saveMessage = function(e) {
   e.preventDefault();
@@ -88,7 +102,7 @@ FriendlyChat.prototype.saveMessage = function(e) {
     // Add a new message entry to the Firebase Database.
     this.messagesRef.push({
       item: this.messageInput.value,
-      type: 'compost'
+      type: this.typeInput.value
     }).then(function() {
       // Clear message text field and SEND button state.
       FriendlyChat.resetMaterialTextfield(this.messageInput);
