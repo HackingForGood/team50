@@ -36,8 +36,8 @@ function FriendlyChat() {
 
   // Saves message on form submit.
   
-  this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-  // this.messageForm.addEventListener('submit', this.findMatch.bind(this));
+  // this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
+  this.messageForm.addEventListener('submit', this.findMatch.bind(this));
 
   this.signOutButton.addEventListener('click', this.signOut.bind(this));
   this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -88,8 +88,38 @@ FriendlyChat.prototype.findMatch = function(e){
 	// Check that the user entered a message and is signed in.
   	if (this.messageInput.value && this.checkSignedInWithMessage()) {
   		// if (this.messageInput.value )
-  		var itemRef = firebase.database().ref('items');
-  		console.log(itemRef);
+  		// var itemRef = firebase.database().ref('items').orderByChild('item').equalTo(this.messageInput.value);
+  		console.log(this.messageInput.value);
+  		var word = this.messageInput.value;
+  		this.itemsRef = this.database.ref('items').once('value').then(function(snapshot){
+  			console.log(snapshot.val());
+  			var data = snapshot.val();
+  			console.log(word);
+  			console.log(data['-Kmr7Wc5C_X7Is7DzHiw']['item']);
+  			for (var key in data){
+  				console.log(data[key]['item']);
+  			}
+  		});
+
+  		//orderByChild('item').equalTo(this.messageInput.value);
+  		// console.log("recycle" in this.itemRef);
+  		// this.itemRef.off();
+  		// var val = this.itemRef.val();
+  		// console.log(val);
+
+  		// var setMessage = function(data) {
+		  //   var val = data.val();
+		  //   this.displayMessage(data.key, val.item, val.type, val.imageUrl);
+	  	// }.bind(this);
+  		// itemRef.on('child_added', setMessage);
+  
+
+  // 		itemRef.on("value", function(snapshot) {
+		//     console.log(snapshot.val());
+		//     snapshot.forEach(function(data) {
+	 //        console.log(data.key);
+		//     });
+		// });
   	}		
 }
 
