@@ -89,15 +89,20 @@ FriendlyChat.prototype.findMatch = function(e){
   	if (this.messageInput.value && this.checkSignedInWithMessage()) {
   		// if (this.messageInput.value )
   		// var itemRef = firebase.database().ref('items').orderByChild('item').equalTo(this.messageInput.value);
-  		console.log(this.messageInput.value);
+  		// console.log(this.messageInput.value);
   		var word = this.messageInput.value;
-  		this.itemsRef = this.database.ref('items').once('value').then(function(snapshot){
-  			console.log(snapshot.val());
+  		var hi = this;
+  		// this.database.ref('items').once('value').then(function(snapshot){
+		this.database.ref('items').once('value').then(function(snapshot){
+  			// console.log(snapshot.val());
   			var data = snapshot.val();
-  			console.log(word);
-  			console.log(data['-Kmr7Wc5C_X7Is7DzHiw']['item']);
+  			// console.log(word);
+  			// console.log(data['-Kmr7Wc5C_X7Is7DzHiw']['item']);
   			for (var key in data){
-  				console.log(data[key]['item']);
+  				if (data[key].item == word){
+  					console.log('hi' + data[key].type);
+  					hi.displayMessage('askdfjl;a',data[key].type);
+  				}
   			}
   		});
 
@@ -233,7 +238,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
     this.signInButton.setAttribute('hidden', 'true');
 
     // We load currently existing chant messages.
-    this.loadMessages();
+    // this.loadMessages();
 
     // We save the Firebase Messaging Device token and enable notifications.
     this.saveMessagingDeviceToken();

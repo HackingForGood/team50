@@ -1,0 +1,36 @@
+[debug] [2017-06-17T21:55:31.347Z] ----------------------------------------------------------------------
+[debug] [2017-06-17T21:55:31.377Z] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-06-17T21:55:31.378Z] CLI Version:  3.9.1
+[debug] [2017-06-17T21:55:31.378Z] Platform:     darwin
+[debug] [2017-06-17T21:55:31.378Z] Node Version: v6.11.0
+[debug] [2017-06-17T21:55:31.379Z] Time:         Sat Jun 17 2017 17:55:31 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:31.379Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-17T21:55:31.413Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-17T21:55:31.414Z] > authorizing via signed-in user
+[debug] [2017-06-17T21:55:31.419Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-06-17T21:55:31.419Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/JksheBdTKrwXBi9bHp7MmVIH-SNOzKFBDmJZ5b-Xqvg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jun 17 2017 17:55:31 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:31.698Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T21:55:31.714Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/team50-a23b7  
+ Sat Jun 17 2017 17:55:31 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:32.055Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T21:55:32.057Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/team50-a23b7/tokens  
+ Sat Jun 17 2017 17:55:32 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:32.361Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/dproctor15/Google Drive/Yale 2/summer2017/hack_for_good/friendlychat/web-start'...
+[info] 
+[debug] [2017-06-17T21:55:32.368Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/team50-a23b7  
+ Sat Jun 17 2017 17:55:32 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:32.616Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T21:55:32.617Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/124695038060/clients/_:getWebAppConfig  
+ Sat Jun 17 2017 17:55:32 GMT-0400 (EDT)
+[debug] [2017-06-17T21:55:33.153Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
