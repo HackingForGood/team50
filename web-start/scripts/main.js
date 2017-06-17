@@ -66,14 +66,14 @@ FriendlyChat.prototype.initFirebase = function() {
 // Loads chat messages history and listens for upcoming ones.
 FriendlyChat.prototype.loadMessages = function() {
   // Reference to the /messages/ database path.
-  this.messagesRef = this.database.ref('messages');
+  this.messagesRef = this.database.ref('items');
   // Make sure we remove all previous listeners.
   this.messagesRef.off();
 
   // Loads the last 12 messages and listen for new ones.
   var setMessage = function(data) {
     var val = data.val();
-    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
+    this.displayMessage(data.key, val.item, val.type, val.imageUrl);
   }.bind(this);
   this.messagesRef.limitToLast(12).on('child_added', setMessage);
   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
@@ -87,9 +87,8 @@ FriendlyChat.prototype.saveMessage = function(e) {
     var currentUser = this.auth.currentUser;
     // Add a new message entry to the Firebase Database.
     this.messagesRef.push({
-      name: currentUser.displayName,
-      text: this.messageInput.value,
-      photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
+      item: this.messageInput.value,
+      type: 'compost'
     }).then(function() {
       // Clear message text field and SEND button state.
       FriendlyChat.resetMaterialTextfield(this.messageInput);
@@ -249,7 +248,7 @@ FriendlyChat.MESSAGE_TEMPLATE =
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a Message in the UI.
-FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
+FriendlyChat.prototype.displayMessage = function(key, item, type, imageUri) {
   var div = document.getElementById(key);
   // If an element for that message does not exists yet we create it.
   if (!div) {
@@ -259,13 +258,13 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     div.setAttribute('id', key);
     this.messageList.appendChild(div);
   }
-  if (picUrl) {
+  if (false) {
     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
   }
-  div.querySelector('.name').textContent = name;
+  div.querySelector('.name').textContent = type;
   var messageElement = div.querySelector('.message');
-  if (text) { // If the message is text.
-    messageElement.textContent = text;
+  if (item) { // If the message is text.
+    messageElement.textContent = item;
     // Replace all line breaks by <br>.
     messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
   } else if (imageUri) { // If the message is an image.
