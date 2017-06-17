@@ -1,0 +1,27 @@
+[debug] [2017-06-17T15:52:42.419Z] ----------------------------------------------------------------------
+[debug] [2017-06-17T15:52:42.424Z] Command:      /usr/local/bin/node /usr/local/bin/firebase database:set / ../initial_messages.json
+[debug] [2017-06-17T15:52:42.425Z] CLI Version:  3.9.1
+[debug] [2017-06-17T15:52:42.425Z] Platform:     darwin
+[debug] [2017-06-17T15:52:42.425Z] Node Version: v6.11.0
+[debug] [2017-06-17T15:52:42.426Z] Time:         Sat Jun 17 2017 11:52:42 GMT-0400 (EDT)
+[debug] [2017-06-17T15:52:42.426Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-17T15:52:42.442Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2017-06-17T15:52:42.442Z] > authorizing via signed-in user
+[debug] [2017-06-17T15:52:42.445Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-06-17T15:52:42.445Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/JksheBdTKrwXBi9bHp7MmVIH-SNOzKFBDmJZ5b-Xqvg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jun 17 2017 11:52:42 GMT-0400 (EDT)
+[debug] [2017-06-17T15:52:44.099Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T15:52:44.110Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/team50-a23b7  
+ Sat Jun 17 2017 11:52:44 GMT-0400 (EDT)
+[debug] [2017-06-17T15:52:45.104Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T15:52:45.106Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/team50-a23b7/tokens  
+ Sat Jun 17 2017 11:52:45 GMT-0400 (EDT)
+[debug] [2017-06-17T15:52:45.624Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T15:52:48.373Z] Error: ENOENT: no such file or directory, open '../initial_messages.json'
+[error] 
+[error] Error: An unexpected error has occurred.
